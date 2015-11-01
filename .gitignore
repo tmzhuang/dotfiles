@@ -1,0 +1,10 @@
+# ignore everything
+*
+
+# excepting
+!.gitignore
+!.vimrc
+!.bashrc
+!.bash_aliases
+!.profile
+!.inputrc
