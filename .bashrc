@@ -1,140 +1,119 @@
-# base-files version 3.7-1
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
 
-# To pick up the latest recommended .bashrc content,
-# look in /etc/defaults/etc/skel/.bashrc
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
-# Modifying /etc/skel/.bashrc directly will prevent
-# setup from updating it.
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
 
-# Shell Options
-# #############
+# append to the history file, don't overwrite it
+shopt -s histappend
 
-# See man bash for more options...
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
 
-# Don't wait for job termination notification
-# set -o notify
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
 
-# Don't use ^D to exit
-# set -o ignoreeof
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+#shopt -s globstar
 
-# Use case-insensitive filename globbing
-# shopt -s nocaseglob
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# Make bash append rather than overwrite the history on disk
-# shopt -s histappend
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
 
-# When changing directory small typos can be ignored by bash
-# for example, cd /vr/lgo/apaache would find /var/log/apache
-# shopt -s cdspell
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
 
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+force_color_prompt=yes
 
-# Completion options
-# ##################
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
 
-# These completion tuning parameters change the default behavior of bash_completion:
+if [ "$color_prompt" = yes ]; then
+    PS1='\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
 
-# Define to access remotely checked-out files over passwordless ssh for CVS
-# COMP_CVS_REMOTE=1
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
 
-# Define to avoid stripping description in --option=description of './configure --help'
-# COMP_CONFIGURE_HINTS=1
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
 
-# Define to avoid flattening internal contents of tar files
-# COMP_TAR_INTERNAL_PATHS=1
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
 
-# If this shell is interactive, turn on programmable completion enhancements.
-# Any completions you add in ~/.bash_completion are sourced last.
-# case $- in
-#   *i*) [[ -f /etc/bash_completion ]] && . /etc/bash_completion ;;
-# esac
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# History Options
-# ###############
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-# Don't put duplicate lines in the history.
-export HISTCONTROL="ignoredups"
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 
-# Ignore some controlling instructions
-export HISTIGNORE="[   ]*:&:bg:fg:exit"
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
 
-# Whenever displaying the prompt, write the previous line to disk
-# export PROMPT_COMMAND="history -a"
-
-# Aliases
-# Source from ~/.bash_aliases
-#if [ -f ~/.bash_aliases ];
-#then . ~/.bash_aliases
-#fi
-
-# Functions
-# #########
-
-# Some example functions
-function settitle() { echo -ne "\e]2;$@\a\e]1;$@\a"; }
-
-# Sets bash for vi mode
 set -o vi
 
-# Customize color for ls
-LS_COLORS='tw=01;30:ow=01;34'
-export LS_COLORS
-
-# PATH additions
-# export PATH=$PATH:$HOME/sdk/tools/
-# export PATH=$PATH:$HOME/sdk/platform-tools/
-# export PATH=$PATH:$HOME/eclipse/
-#export PATH=$PATH:$HOME/bin/
-#export PATH=/cygdrive/c/Program\ Files\ \(x86\)/Java/jdk1.8.0_25/bin/:$PATH
-#export CLASSPATH="C:\\Program Files (x86)\\Java\\jre7\\lib\\ext\\junit-4.10.jar;"$CLASSPATH
-
-# Run fortune at startup
-#fortune -a
-
-# Python
-#PYTHONPATH=$HOME/lib/python
-#EDITOR=vim
-#export PYTHONPATH EDITOR
-
-# Some example alias instructions
-# If these are enabled they will be used instead of any instructions
-# they may mask.  For example, alias rm='rm -i' will mask the rm
-# application.  To override the alias instruction use a \ before, ie
-# \rm will call the real rm not the alias.
-
-# Interactive operation...
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-
-# Default to human readable figures
-alias df='df -h'
-alias du='du -h'
-
-# Misc :)
-alias less='less -r'                          # raw control characters
-alias whence='type -a'                        # where, of a sort
-alias grep='grep --color'                     # show differences in colour
-
-# Some shortcuts for different directory listings
-alias ls='ls -hF --color=tty -X --group-directories-first'                 # classify files in colour
-alias dir='ls --color=auto --format=vertical'
-alias vdir='ls --color=auto --format=long'
-alias ll='ls -l'                              # long list
-alias la='ls -A'                              # all but . and ..
-alias l='ls -CF'                              #
-
-# Custom stuff
-# alias vi='screen -t "vim" vim'
-alias vi='vim'
-alias info='info --vi-keys'
-# alias irssi='screen irssi -c irc.freenode.net -n tzhuang'
-alias irssi='irssi -c irc.freenode.net -n tzhuang'
-
-# Reloads ~/.bashrc
-alias ref='. ~/.bashrc'
-
-# Junit
-alias junit='java org.junit.runner.JUnitCore '
-
-alias heroku='heroku.bat'
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
