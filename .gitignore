@@ -10,3 +10,6 @@
 !.profile
 !.inputrc
 !.vim/colors/inkpot.vim
+!.tmux.conf
+!.tmuxinator/
+!.tmuxinator/*

@@ -1,0 +1,12 @@
+name: dp
+root: ~/proj/whatever
+tmux_command: tmux -2
+
+windows:
+  - whatever-vim: vi
+  - whatever-bash: 
+  - dp-vim: 
+    - cd ~/proj/dependency_grapher
+    - vi
+  - dp-bash: cd ~/proj/dependency_grapher
+  - console: bundle exec rails c
