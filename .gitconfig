@@ -23,3 +23,5 @@
 	default = simple
 [core]
 	editor = vim
+[mergetool]
+	keepBackup = false

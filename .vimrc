@@ -15,7 +15,13 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-obsession'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-bundler'
 Plugin 'vim-scripts/bufkill.vim'
+Plugin 'vim-scripts/Rename2'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'KabbAmine/zeavim.vim'
 call vundle#end()
@@ -112,3 +118,9 @@ map <ScrollWheelDown> <C-E>
 
 "Git mergetool vertically instead of horizontal
 set diffopt+=vertical
+
+"Looks for a tags file in the current directory first and up and up until it finds it
+set tags=./tags,tags;
+
+"Show hidden files in CtrlP
+let g:ctrlp_show_hidden=1
