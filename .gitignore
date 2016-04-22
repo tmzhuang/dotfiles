@@ -11,5 +11,14 @@
 !.inputrc
 !.vim/colors/inkpot.vim
 !.tmux.conf
+
 !.tmuxinator/
 !.tmuxinator/*
+
+!.profile
+
+!.vim/
+!.vim/*
+
+!bin/
+!bin/*

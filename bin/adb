@@ -1,0 +1,1 @@
+/opt/android-sdk-linux/platform-tools/adb
