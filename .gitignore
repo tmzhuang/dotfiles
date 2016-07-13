@@ -1,5 +1,5 @@
 # ignore everything
-*
+/*
 
 # excepting
 !.gitignore
@@ -9,8 +9,9 @@
 !.bash_aliases
 !.profile
 !.inputrc
-!.vim/colors/inkpot.vim
 !.tmux.conf
+!.config/
+!.xinitrc
 
 !.tmuxinator/
 !.tmuxinator/*
@@ -18,7 +19,6 @@
 !.profile
 
 !.vim/
-!.vim/*
 
 !bin/
 !bin/*
