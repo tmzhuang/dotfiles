@@ -120,6 +120,7 @@ fi
 set -o vi
 export VISUAL=vim
 export EDITOR="$VISUAL"
+export SYSTEMD_EDITOR="$VISUAL"
 
 # Free stop from ^S so that it can be used for forward-search-history
 stty stop undef
@@ -140,3 +141,9 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+# Start the X server
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+
+# Enable VirtualBox guest additions for Arch Linux
+VBoxClient-all

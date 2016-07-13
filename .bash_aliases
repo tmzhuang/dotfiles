@@ -31,6 +31,7 @@ alias l='ls -CF'                              #
 # Custom stuff
 # alias vi='screen -t "vim" vim'
 alias vi='vim'
+alias sudo='sudo -E '
 alias info='info --vi-keys'
 # alias irssi='screen irssi -c irc.freenode.net -n tzhuang'
 alias irssi='irssi -c irc.freenode.net -n tzhuang'
