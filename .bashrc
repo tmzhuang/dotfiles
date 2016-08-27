@@ -147,3 +147,6 @@ eval "$(rbenv init -)"
 
 # Enable VirtualBox guest additions for Arch Linux
 VBoxClient-all
+
+# added by travis gem
+[ -f /home/tianming/.travis/travis.sh ] && source /home/tianming/.travis/travis.sh

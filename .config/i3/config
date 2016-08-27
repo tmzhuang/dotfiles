@@ -155,7 +155,7 @@ bindsym $mod+r mode "resize"
         #status_command i3status
 #}
 
-new_window pixel 10
+new_window pixel 5
 
 # Start a term by default
 exec --no-startup-id i3-msg 'workspace 1; exec termite'

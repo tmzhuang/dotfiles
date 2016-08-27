@@ -24,6 +24,7 @@ Plugin 'vim-scripts/bufkill.vim'
 Plugin 'vim-scripts/Rename2'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'rakr/vim-one'
+Plugin 'tyrannicaltoucan/vim-deep-space'
 call vundle#end()
 filetype plugin indent on
 
@@ -71,7 +72,7 @@ set wrap linebreak nolist
 set showcmd 	"shows commands in status bar as you type
 set tabstop=2 	"number of spaces that <tab> inserts
 set shiftwidth=2 "number of spaces to autoindent
-set expandtab "Expand tab to spaves
+set expandtab "Expand tab to spaces
 set backspace=indent,eol,start "allows backspacing over given arguments
 set autoindent 	"copy indent when starting new line
 set number 		"shows line numbers
@@ -86,6 +87,10 @@ syntax on
 set background=dark " for the dark version
 " set background=light " for the light version
 colorscheme one
+"colorscheme deep-space
+
+"let g:deepspace_italics = 1 " Enable terminal italics
+"let g:airline_theme='deep_space'
 
 "True color
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
