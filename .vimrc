@@ -25,6 +25,8 @@ Plugin 'vim-scripts/Rename2'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'rakr/vim-one'
 Plugin 'tyrannicaltoucan/vim-deep-space'
+Plugin 'tfnico/vim-gradle'
+Plugin 'rustushki/JavaImp.vim'
 call vundle#end()
 filetype plugin indent on
 

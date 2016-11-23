@@ -31,6 +31,7 @@ alias l='ls -CF'                              #
 # Custom stuff
 # alias vi='screen -t "vim" vim'
 alias vi='vim'
+alias xclip='xclip -selection c'
 alias sudo='sudo -E '
 alias info='info --vi-keys'
 # alias irssi='screen irssi -c irc.freenode.net -n tzhuang'
@@ -39,11 +40,13 @@ alias irssi='irssi -c irc.freenode.net -n tzhuang'
 # Reloads ~/.bashrc
 alias ref='. ~/.bashrc'
 
-alias eo='exo-open'
 alias git='hub'
 
-# TMux
-alias tmux='tmux -2'
-alias tml="tmux list-sessions"
-alias tma="tmux -2 attach -t $1"
-alias tmk="tmux kill-session -t $1"
+# Termite
+alias here='pwd | xclip'
+alias there='cd `xclip -o`'
+
+# Gradle
+alias gradle='gw'
+alias gt='gw -DDEBUG=true test'
+alias jda='jdb -attach 5005'
