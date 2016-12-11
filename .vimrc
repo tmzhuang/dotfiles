@@ -23,7 +23,7 @@ Plugin 'tpope/vim-bundler'
 Plugin 'vim-scripts/bufkill.vim'
 Plugin 'vim-scripts/Rename2'
 Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'KabbAmine/zeavim.vim'
+"Plugin 'KabbAmine/zeavim.vim'
 call vundle#end()
 filetype plugin indent on
 

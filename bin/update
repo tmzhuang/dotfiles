@@ -4,8 +4,8 @@ if (( $EUID != 0 )); then
 	sudo ~/bin/update
 	exit
 fi
-apt-get update
-apt-get -y --force-yes upgrade
-apt-get -y --force-yes dist-upgrade
-apt-get clean
-apt-get -y --force-yes autoremove
+apt update
+apt -y upgrade
+apt -y dist-upgrade
+apt clean
+apt -y autoremove
