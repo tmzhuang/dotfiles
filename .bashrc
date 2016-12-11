@@ -140,3 +140,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+# java libraries
+export CLASSPATH=".:~/lib/json-simple-1.1.1.jar:$CLASSPATH"
+
+export STEAM_FRAME_FORCE_CLOSE=1
