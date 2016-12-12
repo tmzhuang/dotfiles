@@ -7,6 +7,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'ervandew/supertab'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/nerdtree'
@@ -27,6 +28,10 @@ Plugin 'rakr/vim-one'
 Plugin 'tyrannicaltoucan/vim-deep-space'
 Plugin 'tfnico/vim-gradle'
 Plugin 'rustushki/JavaImp.vim'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'digitaltoad/vim-pug'
+Plugin 'alvan/vim-closetag'
+Plugin 'slim-template/vim-slim'
 call vundle#end()
 filetype plugin indent on
 
@@ -36,7 +41,7 @@ filetype plugin indent on
 "Shortcuts for opening and reloading .vimrc
 nnoremap <silent> <leader>a :e $MYVIMRC<CR>
 nnoremap <silent> <leader>q :so $MYVIMRC<CR>
-nnoremap <silent> <leader>s :e ~/.tmux.conf<CR>
+nnoremap <silent> <leader>s :e ~/.config/i3/config <CR>
 "Play macro q
 nnoremap <Space> @q
 "Go to folder for snippets in .vim
@@ -154,3 +159,7 @@ set tags=./tags,tags;
 
 "Show hidden files in CtrlP
 let g:ctrlp_show_hidden=1
+
+"Load closetag for html template files
+autocmd Filetype eruby source /home/tianming/.vim/bundle/vim-closetag/plugin/closetag.vim
+

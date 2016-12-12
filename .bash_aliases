@@ -50,3 +50,6 @@ alias there='cd `xclip -o`'
 alias gradle='gw'
 alias gt='gw -DDEBUG=true test'
 alias jda='jdb -attach 5005'
+
+# Rails
+alias railss='rails s -b 0.0.0.0'

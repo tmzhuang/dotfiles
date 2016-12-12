@@ -125,9 +125,6 @@ export SYSTEMD_EDITOR="$VISUAL"
 # Free stop from ^S so that it can be used for forward-search-history
 stty stop undef
 
-# Tmuxinator
-source ~/bin/tmuxinator.bash
-
 # Add user bin
 export PATH="$PATH:$HOME/bin" 
 
@@ -150,3 +147,6 @@ VBoxClient-all
 
 # added by travis gem
 [ -f /home/tianming/.travis/travis.sh ] && source /home/tianming/.travis/travis.sh
+
+# Chromium 
+export CHROME_BIN="/usr/bin/chromium"
