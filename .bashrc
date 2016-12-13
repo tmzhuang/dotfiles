@@ -142,9 +142,6 @@ eval "$(rbenv init -)"
 # Start the X server
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
 
-# Enable VirtualBox guest additions for Arch Linux
-VBoxClient-all
-
 # added by travis gem
 [ -f /home/tianming/.travis/travis.sh ] && source /home/tianming/.travis/travis.sh
 

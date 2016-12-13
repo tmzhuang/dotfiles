@@ -10,8 +10,8 @@
 !.profile
 !.inputrc
 !.tmux.conf
-!.config/
 !.xinitrc
+!.Xmodmap
 
 !.tmuxinator/
 !.tmuxinator/*
@@ -22,3 +22,11 @@
 
 !bin/
 !bin/*
+
+!.config/chromium/
+!.config/menus/
+
+
+!.config/i3
+!.config/termite
+!.config/heroku
