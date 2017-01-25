@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-echo -e "\e]2;${1}\a\c"
-#echo -e "\e]2;${1}\a" > /dev/null

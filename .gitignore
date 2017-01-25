@@ -7,18 +7,17 @@
 !.vimrc
 !.bashrc
 !.bash_aliases
-!.profile
+!.bash_profile
 !.inputrc
 !.tmux.conf
-!.config/
+!.config/heroku/
+!.config/i3/
+!.config/termite
 !.xinitrc
 
 !.tmuxinator/
 !.tmuxinator/*
 
-!.profile
-
 !.vim/
 
-!bin/
-!bin/*
+
