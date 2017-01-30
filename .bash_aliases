@@ -52,4 +52,5 @@ alias gt='gw -DDEBUG=true test'
 alias jda='jdb -attach 5005'
 
 # Rails
-alias railss='rails s -b 0.0.0.0'
+alias rstart='rails s -b 0.0.0.0'
+alias rstop='kill -9 $(lsof -i tcp:3000 -t)'
