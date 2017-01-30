@@ -25,7 +25,7 @@ pathprepend() {
 
 GREEN="\[$(tput setaf 2)\]"
 RESET="\[$(tput sgr0)\]"
-export PS1="${GREEN}\u@\h:\w${RESET}> "
+export PS1="${GREEN}\u@\h:\w> ${RESET}"
 #PS1="\[\e[0;32m\]$ \[\e[0;0m\]"
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
