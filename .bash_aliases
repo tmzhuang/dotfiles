@@ -31,6 +31,7 @@ alias l='ls -CF'                              #
 # Custom stuff
 # alias vi='screen -t "vim" vim'
 alias vi='vim'
+alias v='vim'
 alias xclip='xclip -selection c'
 alias sudo='sudo -E '
 alias info='info --vi-keys'
@@ -41,6 +42,7 @@ alias irssi='irssi -c irc.freenode.net -n tzhuang'
 alias ref='. ~/.bashrc'
 
 alias git='hub'
+alias g='hub'
 
 # Termite
 alias here='pwd | xclip'
@@ -51,5 +53,11 @@ alias gradle='gw'
 alias gt='gw -DDEBUG=true test'
 alias jda='jdb -attach 5005'
 
+# Arch
+alias reboot='sudo systemctl reboot'
+alias poweroff='sudo systemctl poweroff'
+
 # Rails
 alias railss='rails s -b 0.0.0.0'
+
+alias triton='sudo mount -t cifs -o password="" //TRITON/triton ~/triton'
