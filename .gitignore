@@ -21,12 +21,13 @@
 !.vim/
 
 !bin/
-!bin/*
+bin/starcraft
 
 !.config/chromium/
 !.config/menus/
 
 
-!.config/i3
+!.config/i3status/
+!.config/i3/
 !.config/termite
 !.config/heroku
