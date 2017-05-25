@@ -20,9 +20,6 @@
 
 !.vim/
 
-!bin/
-bin/starcraft
-
 !.config/chromium/
 !.config/menus/
 
