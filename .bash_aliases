@@ -49,13 +49,14 @@ alias here='pwd | xclip'
 alias there='cd `xclip -o`'
 
 # Gradle
-alias gradle='gw'
-alias gt='gw -DDEBUG=true test'
-alias jda='jdb -attach 5005'
+#alias gradle='gw'
+#alias gt='gw -DDEBUG=true test'
+#alias jda='jdb -attach 5005'
 
 # Arch
 alias reboot='sudo systemctl reboot'
 alias poweroff='sudo systemctl poweroff'
+alias suspend='sudo systemctl suspend'
 
 # Rails
 alias railss='rails s -b 0.0.0.0'
