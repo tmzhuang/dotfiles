@@ -26,6 +26,7 @@ Plugin 'alvan/vim-closetag' "Autoclose (X)HTML tags
 Plugin 'slim-template/vim-slim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'vim-python/python-syntax' "f-string syntax for python
 " Colorschemes
 Plugin 'rakr/vim-one' "Colorscheme
 call vundle#end()
@@ -102,6 +103,8 @@ let NERDTreeShowBookmarks=1
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_show_hidden=1 "Show hidden files in CtrlP
+"python-syntax
+let g:python_highlight_all = 1
 
 set backupdir=./.backup,/tmp
 set directory=./.backup,/tmp
