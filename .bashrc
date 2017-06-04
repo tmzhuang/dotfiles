@@ -1,32 +1,47 @@
 # If not running interactively, don't do anything
 case $- in
-  *i*) ;;
-  *) return;;
+    *i*) ;;
+    *) return;;
 esac
 
 pathappend() {
-  for ARG in "$@"
-  do
-    if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
-      PATH="${PATH:+"$PATH:"}$ARG"
-    fi
-  done
+    for ARG in "$@"
+    do
+        if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
+            PATH="${PATH:+"$PATH:"}$ARG"
+        fi
+    done
 }
 
 pathprepend() {
-  for ((i=$#; i>0; i--)); 
-  do
-    ARG=${!i}
-    if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
-      PATH="$ARG${PATH:+":$PATH"}"
+    for ((i=$#; i>0; i--)); 
+    do
+        ARG=${!i}
+        if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
+            PATH="$ARG${PATH:+":$PATH"}"
+        fi
+    done
+}
+
+pyenv_init() {
+    pathprepend $PYENV_ROOT/bin
+    export PYENV_ROOT="$HOME/.pyenv"
+    if hash pyenv 2>/dev/null; then
+        eval "$(pyenv init -)"
+        eval "$(pyenv virtualenv-init -)"
     fi
-  done
+}
+
+rbenv_init() {
+    pathprepend $HOME/.rbenv/bin
+    if hash rbenv 2>/dev/null; then
+        eval "$(rbenv init -)"
+    fi
 }
 
 GREEN="\[$(tput setaf 2)\]"
 RESET="\[$(tput sgr0)\]"
 export PS1="${GREEN}\u@\h:\w$ ${RESET}"
-#PS1="\[\e[0;32m\]$ \[\e[0;0m\]"
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -43,7 +58,7 @@ shopt -s checkwinsize
 #shopt -s globstar
 
 if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
+    . ~/.bash_aliases
 fi
 
 # vi mode
@@ -58,12 +73,12 @@ stty stop undef
 # Add user bin
 pathappend $HOME/bin
 pathappend $HOME/.local/bin
-pathappend /opt/android-sdk/tools
-pathappend /opt/android-sdk/platform-tools
+#pathappend /opt/android-sdk/tools
+#pathappend /opt/android-sdk/platform-tools
 ### Added by the Heroku Toolbelt
-pathprepend /usr/local/heroku/bin
-pathprepend $HOME/.rbenv/bin
-eval "$(rbenv init -)"
+#pathprepend /usr/local/heroku/bin
+#rbenv_init
+pyenv_init
 
 # Start the X server
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
