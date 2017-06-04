@@ -73,6 +73,9 @@ set wrap linebreak nolist
 set showcmd "shows commands in status bar as you type
 set number "shows line numbers
 set laststatus=2
+set shiftwidth=4
+set tabstop=4
+set expandtab
 set undolevels=1000
 set t_Co=256
 syntax on "enable colours and sytax highlighting
