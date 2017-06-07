@@ -41,7 +41,7 @@ alias irssi='irssi -c irc.freenode.net -n tzhuang'
 # Reloads ~/.bashrc
 alias ref='. ~/.bashrc'
 
-alias git='hub'
+#alias git='hub'
 alias g='hub'
 
 # Termite
