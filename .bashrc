@@ -4,40 +4,6 @@ case $- in
     *) return;;
 esac
 
-pathappend() {
-    for ARG in "$@"
-    do
-        if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
-            PATH="${PATH:+"$PATH:"}$ARG"
-        fi
-    done
-}
-
-pathprepend() {
-    for ((i=$#; i>0; i--)); 
-    do
-        ARG=${!i}
-        if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
-            PATH="$ARG${PATH:+":$PATH"}"
-        fi
-    done
-}
-
-pyenv_init() {
-    pathprepend $PYENV_ROOT/bin
-    export PYENV_ROOT="$HOME/.pyenv"
-    if hash pyenv 2>/dev/null; then
-        eval "$(pyenv init -)"
-        eval "$(pyenv virtualenv-init -)"
-    fi
-}
-
-rbenv_init() {
-    pathprepend $HOME/.rbenv/bin
-    if hash rbenv 2>/dev/null; then
-        eval "$(rbenv init -)"
-    fi
-}
 
 GREEN="\[$(tput setaf 2)\]"
 RESET="\[$(tput sgr0)\]"
@@ -71,14 +37,14 @@ SYSTEMD_EDITOR="$VISUAL"
 stty stop undef
 
 # Add user bin
-pathappend $HOME/bin
-pathappend $HOME/.local/bin
-#pathappend /opt/android-sdk/tools
-#pathappend /opt/android-sdk/platform-tools
-### Added by the Heroku Toolbelt
-#pathprepend /usr/local/heroku/bin
-#rbenv_init
-pyenv_init
+PATH=$HOME/bin:$PATH
+PATH=$HOME/.local/bin:$PATH
+PYENV_ROOT=$HOME/.pyenv
+PATH=$HOME/.rbenv/bin:$PATH
+PATH=$PYENV_ROOT/bin:$PATH
+
+eval "$(pyenv init -)"
+eval "$(rbenv init -)"
 
 # Start the X server
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx

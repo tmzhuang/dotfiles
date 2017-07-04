@@ -81,7 +81,7 @@ set t_Co=256
 syntax on "enable colours and sytax highlighting
 set background=dark "for the dark version
 colorscheme one
-set termguicolors
+"colorscheme inkpot
 " FILETYPE SPECIFIC
 autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
 "Load closetag for erb files
@@ -119,3 +119,6 @@ set diffopt+=vertical
 "Increment contents of script tags in html files
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
+
+"slim
+autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
