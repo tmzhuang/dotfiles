@@ -1,11 +1,13 @@
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 set nocompatible
 set rtp+=~/.vim/bundle/Vundle.vim
+filetype off
 call vundle#begin()
 " General
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'ervandew/supertab'
+Plugin 'danro/rename.vim'
 "Plugin 'Valloric/YouCompleteMe'
 Plugin 'garbas/vim-snipmate'
 Plugin 'MarcWeber/vim-addon-mw-utils' "Required by snipmate
@@ -21,12 +23,16 @@ Plugin 'vim-airline/vim-airline' "Status bar
 Plugin 'vim-scripts/vim-gradle' "Gradle syntax highlighting
 Plugin 'vim-scripts/csv.vim'
 Plugin 'tpope/vim-endwise' "Ruby auto insert 'end' 
-Plugin 'vim-scripts/indenthtml.vim'
+"Plugin 'vim-scripts/indenthtml.vim'
 Plugin 'alvan/vim-closetag' "Autoclose (X)HTML tags
 Plugin 'slim-template/vim-slim'
+Plugin 'digitaltoad/vim-pug'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'vim-python/python-syntax' "f-string syntax for python
+Plugin 'captbaritone/better-indent-support-for-php-with-html'
+Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'tweekmonster/django-plus.vim'
 " Colorschemes
 Plugin 'rakr/vim-one' "Colorscheme
 call vundle#end()
@@ -120,5 +126,7 @@ set diffopt+=vertical
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
-"slim
-autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
+hi Normal ctermbg=none
+
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php'
+let NERDTreeIgnore = ['\.pyc$']

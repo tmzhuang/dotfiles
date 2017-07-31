@@ -43,6 +43,8 @@ PYENV_ROOT=$HOME/.pyenv
 PATH=$HOME/.rbenv/bin:$PATH
 PATH=$PYENV_ROOT/bin:$PATH
 
+PYTHONSTARTUP=~/.startup.py
+
 eval "$(pyenv init -)"
 eval "$(rbenv init -)"
 

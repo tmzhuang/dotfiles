@@ -63,4 +63,7 @@ alias railss='rails s -b 0.0.0.0'
 
 alias triton='sudo mount -t cifs -o password="" //TRITON/triton ~/triton'
 alias bb='ssh buildbot@buildbot'
+alias csp='ssh crank@cs-patti'
 alias imx6='ssh root@172.16.1.213'
+
+alias sdpy='python -i -c"from screendumpy.models import *"'
