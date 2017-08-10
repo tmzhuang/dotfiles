@@ -23,6 +23,7 @@ Plugin 'vim-airline/vim-airline' "Status bar
 Plugin 'vim-scripts/vim-gradle' "Gradle syntax highlighting
 Plugin 'vim-scripts/csv.vim'
 Plugin 'tpope/vim-endwise' "Ruby auto insert 'end' 
+Plugin 'vitalk/vim-shebang'
 "Plugin 'vim-scripts/indenthtml.vim'
 Plugin 'alvan/vim-closetag' "Autoclose (X)HTML tags
 Plugin 'slim-template/vim-slim'
