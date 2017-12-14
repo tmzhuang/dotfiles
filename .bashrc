@@ -42,11 +42,17 @@ PATH=$HOME/.local/bin:$PATH
 PYENV_ROOT=$HOME/.pyenv
 PATH=$HOME/.rbenv/bin:$PATH
 PATH=$PYENV_ROOT/bin:$PATH
+PATH=/opt/codesonar-4.4p0/codesonar/bin:$PATH
+TERM=xterm
 
 PYTHONSTARTUP=~/.startup.py
 
 eval "$(pyenv init -)"
 eval "$(rbenv init -)"
+eval "$(pyenv virtualenv-init -)"
+PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 # Start the X server
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
