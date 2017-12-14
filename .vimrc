@@ -34,6 +34,7 @@ Plugin 'vim-python/python-syntax' "f-string syntax for python
 Plugin 'captbaritone/better-indent-support-for-php-with-html'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'tweekmonster/django-plus.vim'
+Plugin 'tell-k/vim-autopep8'
 " Colorschemes
 Plugin 'rakr/vim-one' "Colorscheme
 call vundle#end()
@@ -115,6 +116,7 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_show_hidden=1 "Show hidden files in CtrlP
 "python-syntax
 let g:python_highlight_all = 1
+au FileType python setlocal formatprg=autopep8\ -
 
 set backupdir=./.backup,/tmp
 set directory=./.backup,/tmp
@@ -130,4 +132,9 @@ let g:html_indent_style1 = "inc"
 hi Normal ctermbg=none
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php'
-let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeIgnore = ['\.pyc$', 'tags']
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v(tags)|(\.(exe|so|dll|pyc|ctrlp|python-version))$',
+  \ }
+let g:ctrlp_root_markers = ['.ctrlp']
