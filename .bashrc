@@ -24,8 +24,8 @@ pathprepend() {
 }
 
 pyenv_init() {
+    PYENV_ROOT="$HOME/.pyenv"
     pathprepend $PYENV_ROOT/bin
-    export PYENV_ROOT="$HOME/.pyenv"
     if hash pyenv 2>/dev/null; then
         eval "$(pyenv init -)"
         eval "$(pyenv virtualenv-init -)"
@@ -66,6 +66,7 @@ set -o vi
 VISUAL=vim
 EDITOR="$VISUAL"
 SYSTEMD_EDITOR="$VISUAL"
+TERM='xterm'
 
 # Free stop from ^S so that it can be used for forward-search-history
 stty stop undef
@@ -77,8 +78,12 @@ pathappend $HOME/.local/bin
 #pathappend /opt/android-sdk/platform-tools
 ### Added by the Heroku Toolbelt
 #pathprepend /usr/local/heroku/bin
-#rbenv_init
+rbenv_init
 pyenv_init
+
+# fzf
+source /usr/share/fzf/key-bindings.bash
+source /usr/share/fzf/completion.bash
 
 # Start the X server
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
