@@ -54,3 +54,7 @@ alias jda='jdb -attach 5005'
 # Rails
 alias rstart='rails s -b 0.0.0.0'
 alias rstop='kill -9 $(lsof -i tcp:3000 -t)'
+
+# Crank
+alias bb='ssh buildbot@buildbot'
+alias csp='ssh crank@cs-patti'

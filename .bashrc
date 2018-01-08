@@ -32,6 +32,7 @@ export PS1="${GREEN}\u@\h:\w> ${RESET}"
 HISTCONTROL=ignoreboth
 HISTSIZE=
 HISTFILESIZE=
+TERM=xterm
 # append to the history file, don't overwrite it
 shopt -s histappend
 # check the window size after each command and, if necessary,
@@ -61,6 +62,10 @@ pathappend $HOME/bin
 pathprepend /usr/local/heroku/bin
 pathprepend $HOME/.rbenv/bin
 eval "$(rbenv init -)"
+pathprepend /home/tianming/.pyenv/bin
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 
 # Start the X server
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
@@ -70,3 +75,5 @@ VBoxClient-all
 
 # added by travis gem
 [ -f /home/tianming/.travis/travis.sh ] && source /home/tianming/.travis/travis.sh
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
