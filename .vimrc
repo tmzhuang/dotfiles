@@ -35,6 +35,7 @@ Plugin 'captbaritone/better-indent-support-for-php-with-html'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'tweekmonster/django-plus.vim'
 Plugin 'tell-k/vim-autopep8'
+Plugin 'ton/vim-bufsurf' "Navivation order history
 " Colorschemes
 Plugin 'rakr/vim-one' "Colorscheme
 call vundle#end()
@@ -74,6 +75,15 @@ cnoremap w!! w !sudo tee % >/dev/null
 set mouse=a
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
+
+" Alt mappings in vim
+" http://vim.wikia.com/wiki/Get_Alt_key_to_work_in_terminal
+" https://github.com/thestinger/termite/issues/168
+" To get i, press <C-V> <M-i>
+set <M-i>=i
+set <M-o>=o
+nnoremap <M-i> :BufSurfForward<CR>
+nnoremap <M-o> :BufSurfBack<CR>
 
 "VISUALS
 "set nowrap
