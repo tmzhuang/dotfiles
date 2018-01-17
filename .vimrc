@@ -80,10 +80,11 @@ map <ScrollWheelDown> <C-E>
 " http://vim.wikia.com/wiki/Get_Alt_key_to_work_in_terminal
 " https://github.com/thestinger/termite/issues/168
 " To get i, press <C-V> <M-i>
-set <M-i>=i
-set <M-o>=o
-nnoremap <M-i> :BufSurfForward<CR>
-nnoremap <M-o> :BufSurfBack<CR>
+"set <M-i>=i
+"set <M-o>=o
+nnoremap <leader>i :BufSurfForward<CR>
+nnoremap <leader>o :BufSurfBack<CR>
+
 
 "VISUALS
 "set nowrap
