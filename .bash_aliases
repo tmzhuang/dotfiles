@@ -22,13 +22,15 @@ alias grep='grep --color'                     # show differences in colour
 
 # Some shortcuts for different directory listings
 alias ls='ls -hF --color=tty -X --group-directories-first'                 # classify files in colour
-alias dir='ls --color=auto --format=vertical'
-alias vdir='ls --color=auto --format=long'
 alias ll='ls -alF'                              # long list
 alias la='ls -A'                              # all but . and ..
 alias l='ls -CF'                              #
 
 # Custom stuff
+# File navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 # alias vi='screen -t "vim" vim'
 alias vi='vim'
 alias xclip='xclip -selection c'
@@ -38,7 +40,7 @@ alias info='info --vi-keys'
 alias irssi='irssi -c irc.freenode.net -n tzhuang'
 
 # Reloads ~/.bashrc
-alias ref='. ~/.bashrc'
+alias ref='exec bash'
 
 alias git='hub'
 
