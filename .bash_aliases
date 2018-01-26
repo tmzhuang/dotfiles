@@ -60,3 +60,6 @@ alias rstop='kill -9 $(lsof -i tcp:3000 -t)'
 # Crank
 alias bb='ssh buildbot@buildbot'
 alias csp='ssh crank@cs-patti'
+
+alias watch='when-changed proj/sbgenhtml/sbgenhtml/templates/*.html proj/sbgenhtml/sbgenhtml/*.py -c '
+alias jn='jupyter notebook'

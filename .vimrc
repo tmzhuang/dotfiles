@@ -23,6 +23,7 @@ Plugin 'vim-airline/vim-airline' "Status bar
 Plugin 'vim-scripts/vim-gradle' "Gradle syntax highlighting
 Plugin 'vim-scripts/csv.vim'
 Plugin 'tpope/vim-endwise' "Ruby auto insert 'end' 
+Plugin 'lepture/vim-jinja' "jinja2 highlitting
 Plugin 'vitalk/vim-shebang'
 "Plugin 'vim-scripts/indenthtml.vim'
 Plugin 'alvan/vim-closetag' "Autoclose (X)HTML tags
@@ -143,6 +144,7 @@ let g:html_indent_style1 = "inc"
 hi Normal ctermbg=none
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php'
+au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 let NERDTreeIgnore = ['\.pyc$', 'tags']
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
