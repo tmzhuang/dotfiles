@@ -64,4 +64,5 @@ eval "$(pyenv virtualenv-init -)"
 
 # added by travis gem
 #[ -f /home/tianming/.travis/travis.sh ] && source /home/tianming/.travis/travis.sh
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source /usr/share/fzf/key-bindings.bash
+source /usr/share/fzf/completion.bash
