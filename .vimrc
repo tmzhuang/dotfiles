@@ -6,45 +6,51 @@ call vundle#begin()
 " General
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
-Plugin 'ervandew/supertab'
+"Plugin 'ervandew/supertab'
 Plugin 'danro/rename.vim'
-"Plugin 'Valloric/YouCompleteMe'
 Plugin 'garbas/vim-snipmate'
 Plugin 'MarcWeber/vim-addon-mw-utils' "Required by snipmate
 Plugin 'tomtom/tlib_vim' "Required by snipmate
 Plugin 'honza/vim-snippets' "Required by snipmate
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-fugitive' " Git wrapper
+Plugin 'tpope/vim-surround' " Surround pairs (quotes, brackets, etc.)
+Plugin 'tpope/vim-repeat' " . support for vim-surround
 Plugin 'vim-airline/vim-airline' "Status bar
-" Filetype specific
-Plugin 'vim-scripts/vim-gradle' "Gradle syntax highlighting
-Plugin 'vim-scripts/csv.vim'
-Plugin 'tpope/vim-endwise' "Ruby auto insert 'end' 
-Plugin 'lepture/vim-jinja' "jinja2 highlitting
-Plugin 'vitalk/vim-shebang'
-"Plugin 'vim-scripts/indenthtml.vim'
-Plugin 'alvan/vim-closetag' "Autoclose (X)HTML tags
-Plugin 'slim-template/vim-slim'
-Plugin 'digitaltoad/vim-pug'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'vim-python/python-syntax' "f-string syntax for python
-Plugin 'captbaritone/better-indent-support-for-php-with-html'
 Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'tweekmonster/django-plus.vim'
-Plugin 'tell-k/vim-autopep8'
-Plugin 'ton/vim-bufsurf' "Navivation order history
-" Colorschemes
-Plugin 'rakr/vim-one' "Colorscheme
+Plugin 'ton/vim-bufsurf' " Navivation order history
+Plugin 'rakr/vim-one' " Colorscheme
+" Filetype specific
+" Ruby
+" =================
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'alvan/vim-closetag' "Autoclose (X)HTML tags
+Plugin 'tpope/vim-endwise' "Ruby auto insert 'end' 
+Plugin 'slim-template/vim-slim'
+" Python
+" =================
+Plugin 'lepture/vim-jinja' "jinja2 highlitting
+Plugin 'nvie/vim-flake8' " PEP8 linter (use F7)
+Plugin 'tmhedberg/SimpylFold' "Python auto docstring folding
+Plugin 'Konfekt/FastFold' "Speed up auto folding
+Plugin 'vim-python/python-syntax' "f-string syntax for python
+Plugin 'digitaltoad/vim-pug'
+"Plugin 'tell-k/vim-autopep8'
+" Java
+" =================
+Plugin 'vim-scripts/vim-gradle' "Gradle syntax highlighting
+" Misc
+" =================
+"Plugin 'vim-scripts/indenthtml.vim'
+Plugin 'captbaritone/better-indent-support-for-php-with-html'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'vim-scripts/csv.vim' " Syntax highliting for csv
+
 call vundle#end()
 filetype plugin indent on
 
 "MAPPINGS
-"change mapleader from \ to ,
-"let mapleader=","
 "Shortcuts for opening and reloading .vimrc
 nnoremap <silent> <leader>a :e $MYVIMRC<CR>
 nnoremap <silent> <leader>q :so $MYVIMRC<CR>
@@ -80,12 +86,8 @@ map <ScrollWheelDown> <C-E>
 " Alt mappings in vim
 " http://vim.wikia.com/wiki/Get_Alt_key_to_work_in_terminal
 " https://github.com/thestinger/termite/issues/168
-" To get i, press <C-V> <M-i>
-"set <M-i>=i
-"set <M-o>=o
 nnoremap <leader>i :BufSurfForward<CR>
 nnoremap <leader>o :BufSurfBack<CR>
-
 
 "VISUALS
 "set nowrap
@@ -151,3 +153,10 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v(tags)|(\.(exe|so|dll|pyc|ctrlp|python-version))$',
   \ }
 let g:ctrlp_root_markers = ['.ctrlp']
+
+" Fastfold
+nmap zuz <Plug>(FastFoldUpdate)
+let g:fastfold_savehook = 1
+let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
+let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
+let g:SimpylFold_docstring_preview = 1
