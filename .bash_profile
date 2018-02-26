@@ -17,7 +17,7 @@
   #done
 #}
 
-export HISTCONTROL=ignoreboth
+export HISTCONTROL=ignoreboth:erasedups
 export HISTSIZE=
 export HISTFILESIZE=
 
@@ -34,6 +34,9 @@ export SYSTEMD_EDITOR="$VISUAL"
 export PATH="$HOME/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+
+# Virtualbox opengl
+export LD_PRELOAD=/usr/lib/VBoxOGL.so
 
 if [ -f ~/.bashrc ]; then
   source ~/.bashrc
