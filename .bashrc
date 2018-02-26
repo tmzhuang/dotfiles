@@ -42,7 +42,7 @@ GREEN="\[$(tput setaf 2)\]"
 RESET="\[$(tput sgr0)\]"
 export PS1="${GREEN}\u@\h:\w> ${RESET}"
 TERM=xterm
-CDPATH=$CDPATH:~/proj:/mnt/HEAD/:/media/
+CDPATH=$CDPATH:~/proj/crank
 # append to the history file, don't overwrite it
 shopt -s histappend
 # check the window size after each command and, if necessary,
