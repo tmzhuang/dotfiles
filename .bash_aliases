@@ -63,3 +63,5 @@ alias csp='ssh crank@cs-patti'
 
 alias watch='when-changed proj/sbgenhtml/sbgenhtml/templates/*.html proj/sbgenhtml/sbgenhtml/*.py -c '
 alias jn='jupyter notebook'
+
+alias svnignore='svn propset svn:ignore -R -F .svnignore .'
