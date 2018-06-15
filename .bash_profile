@@ -38,6 +38,10 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 # Virtualbox opengl
 export LD_PRELOAD=/usr/lib/VBoxOGL.so
 
+# sbengine
+export SB_PLUGINS=/home/tianming/proj/linux/x86_64/linux-x86_64-swrender/plugins
+export LD_LIBRARY_PATH=/home/tianming/proj/linux/x86_64/linux-x86_64-swrender/lib
+
 if [ -f ~/.bashrc ]; then
   source ~/.bashrc
 fi
